@@ -1,0 +1,54 @@
+
+import React from "react"
+import axios from 'axios'
+import { Link, Location } from 'react-router'
+import Commentblog from '../components/blogComments/blogComment'
+import BlogSearch from '../components/blogSearchBox/blogSearch'
+import {FormattedDate, FormattedTime} from 'react-intl';
+
+class Blog extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+          commentTitle : "",
+          commentContent : "",
+          commentPicture : "",
+          authorName : "",
+          publishedDate : "",
+          middleInitial : "",
+          lastName : "",
+        }
+       this.handleCommentChange = this.handleCommentChange.bind(this);
+   }
+
+    handleCommentChange(event){
+        event.preventDefault();
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+        let newObject = event.target.value;
+        this.setState({
+            addComment : newObject  
+        });
+    
+    }
+    
+     render() {    
+        return(
+            {this.state.commentBody === true &&
+            <div>
+                <Commentblog
+                commentTitle = {this.state.commentTitle} 
+                commentContent = {this.state.commentContent}
+                commentPicture = {this.state.commentPicture}
+                authorName = {this.state.authorName}
+                publishedDate = {this.state.publishedDate}
+                middleInitial = {this.state.middleInitial}
+                lastName = {this.state.lastName}/>
+            </div>
+            }
+    }
+
+
+
+
