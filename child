@@ -1,0 +1,32 @@
+import React from 'react';
+import {FormattedDate, FormattedTime} from 'react-intl';
+
+function Commentblog(props) {
+        return(
+            <div className='container'>
+                <hr/>
+                <div>
+                    <div className='row'>
+                        <div className='col-lg-12 blogandcommentTitle'>
+                            <p>{props.commentTitle}</p>
+                            </div>
+                            <div>
+                            <p id="authorNameBlog">By : {props.authorName} {props.middleInitial} {props.lastName}</p>
+                            <p id="publishDateBlog">Published Date : <FormattedDate value={props.publishedDate} day="numeric" month="long" year="numeric"/> </p>
+                            <hr/>
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className='col-lg-12 blogandcommentBody'>
+                            <p><img id="blogImage" style={{width: 500, height: 300}}src={props.commentPicture}/>{props.commentContent}</p>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                    <h5>Comments</h5>
+                <hr/>
+            </div>
+        )
+    }
+
+export default Commentblog
